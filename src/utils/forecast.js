@@ -9,8 +9,8 @@ const forecast = (lat, long, cb) => {
        } else if (body.error) {
            cb('Unable to find location', undefined);
        } else {
-           const {temperature, feelslike: feelsLikeTemperature, weather_descriptions: weatherDescriptions} = body.current;
-           const forecastMsg = weatherDescriptions[0] + '. It is currently ' + temperature + ' degrees out. It feels like ' + feelsLikeTemperature + ' degrees out.';
+           const {temperature, feelslike: feelsLikeTemperature, weather_descriptions: weatherDescriptions, pressure} = body.current;
+           const forecastMsg = weatherDescriptions[0] + '. It is currently ' + temperature + ' degrees out. It feels like ' + feelsLikeTemperature + ' degrees out. The pressure is ' + pressure;
 
            cb(undefined, forecastMsg);
        }
